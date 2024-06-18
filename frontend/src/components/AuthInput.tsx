@@ -4,6 +4,11 @@ interface AuthInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
 }
 
+/**
+ *  AuthInput component
+ * @param @type AuthInputProps
+ * @returns @type {ReactElement} input field for authentication
+ */
 export default function AuthInput({ label, ...props }: AuthInputProps) {
     return (
         <div>

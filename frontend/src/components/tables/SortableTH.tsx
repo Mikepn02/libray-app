@@ -13,6 +13,11 @@ interface Props {
     iconStyle?: React.CSSProperties;
 }
 
+/**
+ *  SortableTH component
+ * @param @type Props
+ * @returns @type {ReactElement}
+ */
 const SortableTH = ({
     children,
     onSort,

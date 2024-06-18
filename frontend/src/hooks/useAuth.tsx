@@ -22,6 +22,12 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+/**
+ *  A function to provide authentication context to the application
+ * @param @type {React.ReactNode} children
+ * @description A provider to provide authentication context to the application
+ * @returns  @type {React.ReactNode}
+ */
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [loggingIn, setLoggingIn] = useState(false);
     const [registering, setRegistering] = useState(false);
@@ -54,6 +60,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
         , [location.pathname, user]);
 
+    /**
+     * A function to  Login a student
+     * @param email email of the student
+     * @param password  password of the student
+     */
     const login = async (email: string, password: string) => {
         setLoggingIn(true);
         try {
@@ -80,6 +91,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
     };
 
+    /**
+     * A function to register a student
+     * @param @type {Omit<Student, "id" | "createdAt" | "updatedAt"> & { password: string; }} student
+     * @param student student details
+     * @param student.password password of the student
+     */
     const register = async (student: Omit<Student, "id" | "createdAt" | "updatedAt"> & {
         password: string;
     }) => {
@@ -111,6 +128,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
 
+    /**
+     * A function to logout a student
+     */
     const logout = async () => {
         setLoggingOut(true);
         try {

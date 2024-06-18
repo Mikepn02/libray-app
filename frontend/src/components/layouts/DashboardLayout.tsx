@@ -71,7 +71,7 @@ export default function DashboardLayout() {
                                                 </button>
                                             </div>
                                         </TransitionChild>
-                                        {/* Sidebar component, swap this element with another sidebar if you like */}
+                                        {/* Sidebar component */}
                                         <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
                                             <nav className="flex flex-1 flex-col">
                                                 <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -95,6 +95,15 @@ export default function DashboardLayout() {
                                                             ))}
                                                         </ul>
                                                     </li>
+                                                    <li className="mt-auto">
+                                                        <Button
+                                                            onClick={logout}
+                                                            loading={loggingOut}
+                                                            variant='outline' color='red'>
+                                                            <span>Logout</span>
+                                                            <ArrowRightStartOnRectangleIcon className='w-4 ml-2' />
+                                                        </Button>
+                                                    </li>
                                                 </ul>
                                             </nav>
                                         </div>
@@ -106,7 +115,7 @@ export default function DashboardLayout() {
 
                     {/* Static sidebar for desktop */}
                     <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-                        {/* Sidebar component, swap this element with another sidebar if you like */}
+                        {/* Sidebar component */}
                         <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
                             <nav className="flex flex-1 flex-col">
                                 <ul role="list" className="flex flex-1 flex-col gap-y-7 pt-4">
@@ -163,11 +172,11 @@ export default function DashboardLayout() {
                                         <div className="-m-1.5 flex items-center p-1.5">
                                             <span className="sr-only">Open user menu</span>
                                             <Avatar />
-                                            <span className="hidden lg:flex lg:flex-col">
-                                                <span className="ml-4 text-sm font-semibold text-gray-900" aria-hidden="true">
+                                            <span className="flex flex-col">
+                                                <span className="ml-4 text-sm font-semibold text-gray-900 text-sm md:text-base" aria-hidden="true">
                                                     {user?.firstName} {user?.lastName}
                                                 </span>
-                                                <span className="ml-4 text-sm font-semibold text-gray-500" aria-hidden="true">
+                                                <span className="ml-4 text-xs md:text-sm font-semibold text-gray-500 " aria-hidden="true">
                                                     {user?.email}
                                                 </span>
                                             </span>

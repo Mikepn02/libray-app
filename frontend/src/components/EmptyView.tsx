@@ -1,3 +1,11 @@
+/**
+ *  EmptyView component
+ * @param message message to be displayed when no data is available
+ * @param minHeight minimum height for the empty view
+ * @param buttonLabel label for the button
+ * @param buttonAction action to be performed when the button is clicked
+ * @returns @type {ReactElement} empty view
+ */
 export default function EmptyView({
     message,
     minHeight,

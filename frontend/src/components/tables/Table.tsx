@@ -39,6 +39,11 @@ interface CustomTableProps {
     dateRange?: [Date | null, Date | null];
 }
 
+/**
+ *  CustomTable component
+ * @param @type {CustomTableProps} { columns, data, selection, sortedData, sortBy, reverseSortDirection, onSort, pageSize = 10, page = 1, setPage = () => { }, errorFetching = false, loading, }
+ * @returns  @type {ReactElement}
+ */
 export function CustomTable({
     columns,
     data,

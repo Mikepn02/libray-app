@@ -1,12 +1,13 @@
 import winston = require("winston");
 
+// Create a logger instance
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.json(),
     defaultMeta: { service: 'restful-ne' },
     transports: [
-        new winston.transports.File({ filename: 'error.log', level: 'error' }),
-        new winston.transports.File({ filename: 'combined.log' }),
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),//for outputting errors
+        new winston.transports.File({ filename: 'combined.log' }), // for storing normal logs
     ],
 });
 

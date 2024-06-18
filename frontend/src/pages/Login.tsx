@@ -10,6 +10,12 @@ import { generatePageTitle } from "../lib/utils";
 export default function Login() {
     const { loggingIn, login } = useAuth();
 
+    /**
+     *  A function to handle form submission
+     * @param e @type {React.FormEvent<HTMLFormElement>}
+     * @description A function to handle form submission
+     * @returns 
+     */
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget as HTMLFormElement;

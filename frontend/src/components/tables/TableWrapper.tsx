@@ -5,22 +5,26 @@ import EmptyView from '../EmptyView';
 import LoadingView from '../LoadingView';
 import { Column, CustomTable } from './Table';
 
+// Function to sort the data based on the given payload
 function sortData(
-    data: any[],
-    payload: { sortBy: string | null; reversed: boolean; search?: string; dateRange?: [Date | null, Date | null] },
+    data: any[], // Array of data to be sorted
+    payload: { sortBy: string | null; reversed: boolean; search?: string; dateRange?: [Date | null, Date | null] }, // Sorting payload
 ) {
     const { sortBy, reversed, search } = payload;
 
+    // Filter the data based on the search query
     if (search) {
         data = data.filter((item) => {
             return item.name.toLowerCase().includes(search.toLowerCase());
         });
     }
 
+    // If no sortBy value is provided, return the data as is
     if (!sortBy) {
         return data;
     }
 
+    // Sort the data based on the sortBy value and the reversed flag
     return [...data].sort((a, b) => {
         return reversed
             ? String(JSON.stringify(getObjValue(sortBy, b))).localeCompare(String(JSON.stringify(getObjValue(sortBy, a))))

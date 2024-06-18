@@ -9,6 +9,10 @@ import useAuth from "../hooks/useAuth";
 export default function Register() {
     const { register, registering } = useAuth();
 
+    /**
+     * A function to handle form submission
+     * @param e @type {React.FormEvent<HTMLFormElement>}
+     */
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget as HTMLFormElement;

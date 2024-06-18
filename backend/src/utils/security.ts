@@ -6,6 +6,7 @@ export const rateLimiter = rateLimit({
 });
 
 
+// content security policy options
 export const cspOptions = {
     directives: {
         defaultSrc: ["'self'"],

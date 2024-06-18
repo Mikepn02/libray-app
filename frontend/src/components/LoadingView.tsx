@@ -1,3 +1,10 @@
+
+/**
+ * 
+ * @param message message to be displayed whe loading
+ * @param minHeight minimum height for laoding view
+ * @returns @type {ReactElement} loading view
+ */
 export default function LoadingView({ message, minHeight }: { message: string; minHeight?: string }) {
     return (
         <div
