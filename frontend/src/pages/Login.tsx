@@ -68,6 +68,7 @@ export default function Login() {
                                     autoComplete="current-password"
                                     type="password"
                                     name="password"
+                                    min={4} max={50}
 
                                 />
 

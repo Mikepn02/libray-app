@@ -72,46 +72,44 @@ export default class BooksController {
     }
 
     /**
-  * @swagger
-  * /books/multiple:
-  *  post:
-  *    tags:
-  *     - books
-  *    description: Create multiple books
-  *    parameters:
-  *      - in: body
-  *        name: books
-  *        description: books to create.
-  *        schema:
-  *          type: array
-  *          of: 
-  *           type: object
-  *           schema:
-  *             required:
-  *             - name
-  *             - author
-  *             - publisher
-  *             - publicationYear
-  *             - subject
-  *          properties:
-  *            name:
-  *              type: string
-  *            author:
-  *              type: string
-  *            publisher:
-  *              type: string
-  *            publicationYear:
-  *              type: integer
-  *            subject:
-  *              type: string
-  *    responses:
-  *      201:
-  *        description: Books created successfully
-  *      404:
-  *        description: Invalid Body
-  *      500:
-  *        description: Internal Server Error
-  */
+   * @swagger
+   * /books/multiple:
+   *  post:
+   *    tags:
+   *     - books
+   *    description: Create multiple books
+   *    requestBody:
+   *      content:
+   *        application/json:
+   *          schema:
+   *            type: array
+   *            items:
+   *              type: object
+   *              required:
+   *                - name
+   *                - author
+   *                - publisher
+   *                - publicationYear
+   *                - subject
+   *              properties:
+   *                name:
+   *                  type: string
+   *                author:
+   *                  type: string
+   *                publisher:
+   *                  type: string
+   *                publicationYear:
+   *                  type: integer
+   *                subject:
+   *                  type: string
+   *    responses:
+   *      201:
+   *        description: Books created successfully
+   *      404:
+   *        description: Invalid Body
+   *      500:
+   *        description: Internal Server Error
+   */
     public static async createMultipleBooks(req: Request, res: Response) {
         try {
             const books = validateBooks(req.body);

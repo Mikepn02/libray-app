@@ -99,10 +99,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                     color: "red"
                 })
             }
-        } catch (error) {
+        } catch (error: any) {
             notifications.show({
                 title: "Error",
-                message: "An error occurred",
+                message: error.response?.data?.message ?? "An error occured",
                 color: "red",
             });
         } finally {

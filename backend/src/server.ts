@@ -4,10 +4,12 @@ import cors = require("cors");
 import bodyParser = require("body-parser");
 import cookieParser = require("cookie-parser");
 import booksRouter from "./modules/books/booksRouter";
-import swaggerJsdoc = require('swagger-jsdoc');
-import swaggerUi = require('swagger-ui-express');
 import studentsRouter from "./modules/students/studentsRouter";
 import logger from "./utils/logger";
+import swaggerJsdoc = require('swagger-jsdoc');
+import swaggerUi = require('swagger-ui-express');
+import helmet from "helmet";
+import { cspOptions, rateLimiter } from "./utils/security";
 
 const PORT = process.env.PORT || 8000;
 
@@ -19,7 +21,7 @@ app.listen(PORT, () => {
 
 app.use(bodyParser.json())
 app.use(cookieParser());
-
+app.use(helmet());//for Content security policy
 app.use((req, res, next) => {
 
     const origin = req.headers.origin || "*";
@@ -29,6 +31,12 @@ app.use((req, res, next) => {
     res.setHeader("Access-Contxprol-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
     next();
 });
+
+// rete limiting
+app.use(rateLimiter);
+
+// csp configs
+app.use(helmet.contentSecurityPolicy(cspOptions));
 
 
 app.use((req, res, next) => {
