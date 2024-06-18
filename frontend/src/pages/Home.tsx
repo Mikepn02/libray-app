@@ -20,7 +20,7 @@ export default function Home() {
                     </h1>
                     <p className="mt-6 text-base leading-7 text-gray-600">
                         {user ?
-                            `You are logged in as ${user.name}` :
+                            `You are logged in as ${user.firstName} ${user.lastName}` :
                             " Please login or create an account to continue"
                         }
                     </p>
