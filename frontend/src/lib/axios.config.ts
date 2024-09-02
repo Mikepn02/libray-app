@@ -4,7 +4,7 @@ import { getCookie } from "./utils";
 const token = getCookie("token");
 
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: "http://localhost:8080",
     headers: {
         Authorization: `Bearer ${token}`,
     },

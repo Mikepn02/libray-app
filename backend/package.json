@@ -32,7 +32,9 @@
     "@types/express": "^4.17.17",
     "@types/node": "^18.15.3",
     "nodemon": "^2.0.15",
+    "prisma": "^5.19.0",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.4.5"
   }
 }
